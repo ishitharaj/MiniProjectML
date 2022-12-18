@@ -20,7 +20,7 @@ def train(x, y):
     logger.info("Training the model")
     ready_model.fit(x, y)
 
-    pickle.dump(ready_model, open("decision_tree.pkl", 'wb'))
+    pickle.dump(ready_model, open("model/saved/svm.pkl", 'wb'))
 
     return ready_model
 

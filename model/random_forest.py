@@ -20,7 +20,7 @@ def train(x, y):
     logger.info("Training the model")
     ready_model.fit(x, y)
 
-    pickle.dump(ready_model, open("random_forest.pkl", 'wb'))
+    pickle.dump(ready_model, open("model/saved/random_forest.pkl", 'wb'))
 
     return ready_model
 
