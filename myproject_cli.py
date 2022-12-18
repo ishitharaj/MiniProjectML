@@ -1,27 +1,24 @@
 # main part
-
 import pickle
+import warnings
 from conf.conf import logger
 import numpy as np
+from argparse import ArgumentParser
+from model import decision_tree, random_forest, svm
+warnings.filterwarnings("ignore")
 
-# import argparse
+def execute_train(flag=True):
+    """ Execute training"""
+    if flag == True:
+        logger.info("\n\nRun trainning process for decsion tree..")
+        decision_tree.run()
+        logger.info("\n\nRun trainning process for Random forest..")
+        random_forest.run()
+        logger.info("\n\nRun trainning process for SVM ..")
+        svm.run()
+        logger.info("\n\nTraning completed!")
 
-# parser = argparse.ArgumentParser(description='Machine Learning Mini Project')
-# parser.add_argument('integers', metavar='N', type=int, nargs='+',
-#                     help='an integer for the accumulator')
-# parser.add_argument('--sum', dest='accumulate', action='store_const',
-#                     const=sum, default=max,
-#                     help='sum the integers (default: find the max)')
-
-# args = parser.parse_args()
-
-def execute_train():
-    logger.info("Run trainning process..")
     
-
-    return
-
-
 def prediction(model_name, vals):
     logger.info("Loading models..")
     logger.info("Ready to predict..")
@@ -31,12 +28,24 @@ def prediction(model_name, vals):
     logger.info(f'Prediction result using {model_name} model is : {res}')
     return res
 
-model_x = 'decision_tree.pkl'
-model_y = 'random_forest.pkl'
-model_z = 'svm.pkl'
-data = np.array([52, 1, 0, 125, 212, 0, 1, 168, 0, 1, 2, 2, 3]).reshape(1, -1)
+parser = ArgumentParser()
+parser.add_argument("-t", "--train", action="store_true")
+parser.add_argument("-dt", "--decision_tree", action="store_true")
+parser.add_argument("-rf", "--random_forest", action="store_true")
+parser.add_argument("-svm", "--svm", action="store_true")
+parser.add_argument('-p','--predict', nargs='+', help='<Required> Set flag', required=True)
+args = parser.parse_args()
+if args.train:
+    execute_train()
 
-prediction(model_x, data)
-prediction(model_y, data)
-prediction(model_z, data)
-
+if args.predict:
+    data_to_predict = np.array([eval(i) for i in args.predict]).reshape(1, -1)
+    if args.decision_tree:
+        model_x = 'decision_tree.pkl'
+        prediction(model_x, data_to_predict)
+    if args.random_forest:
+        model_y = 'random_forest.pkl'
+        prediction(model_y, data_to_predict)
+    if args.svm:
+        model_z= 'svm.pkl'
+        prediction(model_z, data_to_predict)

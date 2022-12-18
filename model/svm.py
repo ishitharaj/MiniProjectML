@@ -20,10 +20,12 @@ def train(x, y):
     ready_model.fit(x, y)
     return ready_model
 
-logger.info("Loading data set..")
-dataset_path = return_settings_section("DATA", "dataset")
-df = get_data(dataset_path)
-X_train, X_test, y_train, y_test = data_split(df)
-model = train(X_train, y_train)
-save_model(return_settings_section("MODEL", "svm"), model)
-logger.info(f'accuracy is {model.score(X_test, y_test)}')
+def run():
+    """ Run the whole process"""
+    logger.info("Loading data set..")
+    dataset_path = return_settings_section("DATA", "dataset")
+    df = get_data(dataset_path)
+    X_train, X_test, y_train, y_test = data_split(df)
+    model = train(X_train, y_train)
+    save_model(return_settings_section("MODEL", "svm"), model)
+    logger.info(f'accuracy is {model.score(X_test, y_test)}')
