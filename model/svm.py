@@ -4,12 +4,12 @@ sys.path.append("D:\HSE Classes\HSE MSc Big Data\Sem 1\Research seminar\Last HW\
 import pickle
 from conf.conf import logger
 from connector.connect import get_data
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
 from utils.utils import data_split
 
 def init_model():
     """ Initialize the model with given parameters"""
-    loaded_model = DecisionTreeClassifier(max_depth=3, random_state=3)
+    loaded_model = SVC(random_state=3, probability=True)
     logger.info("Initialzied the model")
 
     return loaded_model

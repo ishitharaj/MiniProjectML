@@ -11,4 +11,4 @@ def get_data(link: str) -> pd.DataFrame:
     df = pd.read_csv(link)
     logging.info('Df is extracted')
 
-    return
+    return df
