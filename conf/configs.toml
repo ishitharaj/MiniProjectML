@@ -1,5 +1,7 @@
 [DATA]
-data_set = "https://raw.githubusercontent.com/5x12/ml-cookbook/master/supplements/data/heart.csv"
+dataset = "https://raw.githubusercontent.com/5x12/ml-cookbook/master/supplements/data/heart.csv"
 
 [MODEL]
-dt_conf = "model/conf/here_should_be_your_model.pkl"
+random_forest_path = "model/saved/random_forest.pkl"
+decision_tree_path = "model/saved/decision_tree.pkl"
+svm_path = "model/saved/svm.pkl"

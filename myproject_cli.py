@@ -17,6 +17,8 @@ import numpy as np
 
 def execute_train():
     logger.info("Run trainning process..")
+    
+
     return
 
 
