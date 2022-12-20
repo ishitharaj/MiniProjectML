@@ -33,3 +33,8 @@ To predict using all models:
 To train and predict using all models:  
 `python .\myproject_cli.py -t -dt -rf -svm -p 52 1 0 125 212 0 1 168 0 1 2 2 3`  
 
+
+Expected results:  
+![image](https://user-images.githubusercontent.com/38528963/208633781-5a466b11-419d-4b77-afa6-e6e4d5bfef46.png)
+
+
