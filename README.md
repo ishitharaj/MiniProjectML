@@ -35,6 +35,12 @@ To train and predict using all models:
 
 
 Expected results:  
-![image](https://user-images.githubusercontent.com/38528963/208633781-5a466b11-419d-4b77-afa6-e6e4d5bfef46.png)
+![image](https://user-images.githubusercontent.com/38528963/208634030-a06eefa3-92ad-4c2b-bbc9-decadafd50af.png)  
+  
+![image](https://user-images.githubusercontent.com/38528963/208634133-fd8b8893-f6c1-4f7e-befd-3db986f2ee59.png)
+
+
+
+
 
 
